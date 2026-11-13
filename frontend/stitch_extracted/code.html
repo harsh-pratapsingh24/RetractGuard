@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary":"#bdc2ff","on-secondary-fixed-variant":"#2f3aa3","on-tertiary-fixed-variant":"#005236","surface-dim":"#0f131d","tertiary-container":"#00885d","error":"#ffb4ab","on-error-container":"#ffdad6","primary-fixed":"#e1e0ff","on-surface-variant":"#c7c4d7","on-error":"#690005","on-primary-fixed":"#07006c","surface-variant":"#313540","primary":"#c0c1ff","primary-fixed-dim":"#c0c1ff","tertiary-fixed-dim":"#4edea3","surface-container-lowest":"#0a0e18","surface-container-highest":"#313540","secondary-fixed-dim":"#bdc2ff","on-tertiary-fixed":"#002113","surface":"#0f131d","primary-container":"#8083ff","on-secondary":"#131e8c","inverse-on-surface":"#2c303b","surface-bright":"#353944","on-secondary-container":"#a8afff","on-background":"#dfe2f1","inverse-primary":"#494bd6","surface-container-low":"#171b26","tertiary":"#4edea3","outline-variant":"#464554","on-secondary-fixed":"#000767","secondary-fixed":"#e0e0ff","on-primary-container":"#0d0096","on-primary-fixed-variant":"#2f2ebe","on-tertiary":"#003824","on-surface":"#dfe2f1","secondary-container":"#2f3aa3","on-tertiary-container":"#000703","surface-container":"#1c1f2a","surface-container-high":"#262a35","outline":"#908fa0","inverse-surface":"#dfe2f1","tertiary-fixed":"#6ffbbe","background":"#0f131d","error-container":"#93000a","surface-tint":"#c0c1ff","on-primary":"#1000a9"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin":"1rem","space-xl":"2rem","space-md":"1rem","space-xs":"0.25rem","gutter":"1rem","space-sm":"0.5rem","gutter-desktop":"1.5rem","space-lg":"1.5rem","margin-desktop":"2.5rem","margin-tablet":"1.5rem"},fontFamily:{"headline-md":["Inter"],"headline-lg-mobile":["Inter"],"headline-lg":["Inter"],"label-lg":["JetBrains Mono"],"headline-xl":["Inter"],"body-sm":["Inter"],"body-lg":["Inter"],"label-sm":["JetBrains Mono"],"body-md":["Inter"],"headline-sm":["Inter"],"headline-xl-mobile":["Inter"],"label-md":["JetBrains Mono"]},fontSize:{"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg-mobile":["22px",{"lineHeight":"30px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-xl-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.025em","fontWeight":"500"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-xl border-b border-surface-variant"><div class="h-16 w-full px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-0"><img alt="RetractGuard Shield Network Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/ALJJyrAyS_5EIy102soQptlk1Yx2vRuWmnyHed8bVDA6xNJH7bKpANdkfrtbD8C1mjtqUUD82JP6nqofvzHjydxrxvhlKCIw8lX9uaGZUGlTSFiY1orWrmzDsGhc7NpA3CSNe-HpOVPsyBx5jYfwAmSunCRxgFHb8gDci91SvQ33pB-Tt90EiXIsoE0pVsDaAu-asuTKNEmuhUM8divl1pztqDurg5Dp3n6PZjl7UDsByi3t"/><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold flex items-center">Retract<span class="text-primary drop-shadow-[0_0_12px_rgba(128,131,255,0.4)]">Guard</span></span><div class="hidden sm:flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-high border border-outline-variant/40"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Research Integrity Screening</span></div></div></div><nav class="hidden md:flex items-center p-1 rounded-full bg-surface-container-lowest border border-outline-variant/30 gap-1" data-active-classes="bg-secondary-container text-secondary border-primary/40 shadow-[0_0_12px_rgba(47,58,163,0.5)]"><a aria-current="page" class="px-space-md py-1.5 rounded-full font-label-md transition-all bg-secondary-container text-secondary border-primary/40 shadow-[0_0_12px_rgba(47,58,163,0.5)]" data-path="single-paper-risk-scanner" href="#">Single Paper Risk Scanner</a><a class="px-space-md py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all border border-transparent" data-path="model-and-eda-analytics" href="#">Model &amp; EDA Analytics</a></nav><div class="flex items-center gap-space-sm shrink-0"><div class="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/40"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span class="font-label-sm text-label-sm text-on-surface-variant">v2.4 (OpenAlex Live)</span></div><a class="flex items-center gap-1 px-2.5 py-1.5 rounded bg-surface-container-low border border-outline-variant/30 font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:border-outline-variant transition-colors" href="https://github.com" rel="noopener noreferrer" target="_blank"><span class="hidden sm:inline">GitHub / Docs</span><span class="material-symbols-outlined text-[16px]">open_in_new</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface flex-1"><div class="flex flex-col w-full">
+<!-- Subtle ambient decorative glow backdrop -->
+<div class="relative w-full overflow-hidden px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl flex flex-col gap-space-xl">
+<!-- Ambient Radial Flares -->
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[850px] h-[340px] bg-primary/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+<div class="absolute top-[380px] right-4 w-[480px] h-[320px] bg-error/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+<!-- 1. Hero Search Section -->
+<section class="relative w-full max-w-5xl mx-auto flex flex-col items-center text-center pt-space-md">
+<!-- Status Badge -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/30 mb-space-md shadow-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Autonomous Bibliometric Audit</span>
+<span class="text-outline text-xs">/</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Ensemble v2.4 Active</span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-headline-xl text-headline-xl text-on-surface max-w-3xl tracking-tight leading-tight">
+        Screen Scholarly Publications for <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary-container">Early Retraction Risk</span>
+</h1>
+<!-- Subtext -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-space-sm mb-space-lg leading-relaxed">
+        Analyze authorship patterns, citation graph anomalies, and peer-review velocity via high-throughput OpenAlex &amp; Crossref ingestion telemetry.
+      </p>
+<!-- Search Box Container -->
+<div class="w-full max-w-3xl bg-surface-container-low/90 backdrop-blur-md p-1.5 rounded-xl border border-outline-variant/40 shadow-xl transition-all focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20">
+<form class="flex flex-col sm:flex-row items-center gap-2" id="doi-search-form" onsubmit="event.preventDefault(); window.triggerScan();">
+<div class="relative flex-1 w-full flex items-center pl-3">
+<span class="material-symbols-outlined text-outline text-[22px] shrink-0 select-none">search</span>
+<input class="w-full bg-transparent px-3 py-2.5 font-label-md text-label-md text-on-surface placeholder:text-outline/70 focus:outline-none tracking-wide" id="doi-input-field" placeholder="Enter Paper DOI (e.g., 10.1038/s41586-020-2649-2)" type="text" value="10.1016/j.cell.2019.08.012"/>
+<button class="text-outline hover:text-on-surface p-1 rounded transition-colors mr-1" onclick="document.getElementById('doi-input-field').value=''" title="Clear input" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-space-lg py-3 rounded bg-secondary-container hover:bg-secondary-container/90 text-on-secondary-container border border-primary/40 font-headline-sm text-headline-sm transition-all shadow-[0_0_20px_rgba(47,58,163,0.45)] hover:shadow-[0_0_25px_rgba(128,131,255,0.5)] shrink-0" id="scan-button" type="submit">
+<span class="material-symbols-outlined text-[20px] text-primary">radar</span>
+<span>Analyze Paper</span>
+</button>
+</form>
+</div>
+<!-- Clickable Sample DOI Pills -->
+<div class="mt-space-md flex flex-wrap items-center justify-center gap-2.5 max-w-4xl">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider mr-1">Presets:</span>
+<!-- Sample 1: Active Retracted High Risk -->
+<button class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-error-container/30 border border-error/50 hover:bg-error-container/50 text-on-error-container font-label-sm text-label-sm transition-all shadow-[0_0_12px_rgba(147,0,10,0.3)]" id="sample-pill-1" onclick="window.selectSample(1)" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
+<span class="font-semibold text-error">Sample 1:</span> High-Risk Retracted Paper
+          <span class="font-label-sm text-on-surface-variant font-mono text-[10px] hidden md:inline">(10.1016/j.cell.2019.08.012)</span>
+</button>
+<!-- Sample 2: Clean Nature Study -->
+<button class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 hover:border-tertiary/50 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" id="sample-pill-2" onclick="window.selectSample(2)" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-semibold text-tertiary">Sample 2:</span> Clean Nature Study
+          <span class="font-label-sm text-outline font-mono text-[10px] hidden md:inline">(10.1038/s41586-021-03819-2)</span>
+</button>
+<!-- Sample 3: Borderline Spiking Study -->
+<button class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 hover:border-secondary/50 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" id="sample-pill-3" onclick="window.selectSample(3)" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-semibold text-secondary">Sample 3:</span> Borderline Velocity Spike
+          <span class="font-label-sm text-outline font-mono text-[10px] hidden md:inline">(10.1103/PhysRevLett.124.041101)</span>
+</button>
+</div>
+</section>
+<!-- 2. Paper Metadata Header Card -->
+<section class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl p-6 relative overflow-hidden shadow-lg">
+<div class="absolute top-0 right-0 w-80 h-full bg-gradient-to-l from-primary/5 via-transparent to-transparent pointer-events-none"></div>
+<div class="flex flex-col gap-4 relative z-10">
+<!-- Badge row + DOI tag -->
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div class="flex flex-wrap items-center gap-2">
+<!-- Retracted Status Chip -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-error-container/30 border border-error/50 text-error font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-semibold uppercase tracking-wider">Retracted (Post-Publication Inquiry: Jan 2024)</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container border border-outline-variant/30 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-tertiary">check_circle</span>
+              Crossref Verified
+            </div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container border border-outline-variant/30 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-primary">database</span>
+              OpenAlex ID: W2981774021
+            </div>
+</div>
+<!-- DOI Pill Tag with Copy Trigger -->
+<div class="inline-flex items-center rounded bg-surface-container-highest/80 border border-outline-variant/50 p-1 pl-3 font-label-sm text-label-sm text-on-surface">
+<span class="text-outline mr-1.5">DOI:</span>
+<span class="font-mono text-secondary mr-2" id="meta-doi-text">10.1016/j.cell.2019.08.012</span>
+<button class="hover:bg-surface-variant text-on-surface-variant hover:text-on-surface p-1 rounded transition-colors" onclick="navigator.clipboard.writeText('10.1016/j.cell.2019.08.012'); alert('DOI copied to clipboard!');" title="Copy DOI" type="button">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+</button>
+<a class="hover:bg-surface-variant text-on-surface-variant hover:text-on-surface p-1 rounded transition-colors" href="https://doi.org/10.1016/j.cell.2019.08.012" rel="noopener noreferrer" target="_blank" title="Open DOI Link">
+<span class="material-symbols-outlined text-[15px]">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- Paper Title -->
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight max-w-5xl leading-tight" id="meta-title">
+          Superconducting Fluctuations and Phase Coherence in Nanoscale Chalcogenide Heterostructures
+        </h2>
+<!-- Author line -->
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-[18px] text-outline">group</span>
+<span class="text-on-surface font-medium" id="meta-authors">Dr. Kenneth Zhao, Elena Rostova, Marcus Vance, et al.</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high border border-outline-variant/30 text-outline font-label-sm text-label-sm">8 co-authors</span>
+</div>
+<!-- Meta detail pill strip -->
+<div class="pt-3 border-t border-outline-variant/20 flex flex-wrap items-center gap-y-2 gap-x-6 text-on-surface-variant font-label-md text-label-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">auto_stories</span>
+<span>Journal:</span>
+<span class="text-on-surface font-medium" id="meta-journal">Journal of Advanced Nanomaterials</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-secondary font-mono text-[11px]">IF: 4.8</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">calendar_today</span>
+<span>Published:</span>
+<span class="text-on-surface font-medium" id="meta-date">October 14, 2023</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">account_balance</span>
+<span>Publisher:</span>
+<span class="text-on-surface font-medium" id="meta-publisher">Frontier Scholarly Academic Press</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">lock_open</span>
+<span>License:</span>
+<span class="text-tertiary font-mono text-label-sm font-medium">CC-BY 4.0 Gold OA</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Main Risk & Feature Breakdown Grid (2 columns on top) -->
+<section class="w-full grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Top-Left Card: Retraction Risk Assessment (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container-low border border-error/30 rounded-xl p-6 relative flex flex-col justify-between overflow-hidden shadow-xl" style="box-shadow: inset 0 0 24px rgba(147, 0, 10, 0.08);">
+<!-- Accent indicator line -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-error via-amber-500 to-error"></div>
+<div>
+<!-- Card Header -->
+<div class="flex items-center justify-between gap-2 mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[22px]">shield_with_heart</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Retraction Risk Assessment</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-error-container/40 border border-error/50 font-label-sm text-label-sm text-error uppercase font-bold tracking-wider">
+              Critical
+            </span>
+</div>
+<!-- Gauge and Key Metrics -->
+<div class="flex flex-col sm:flex-row items-center justify-around gap-6 py-4">
+<!-- Inline SVG Gauge -->
+<div class="relative w-44 h-44 flex items-center justify-center shrink-0">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 160 160">
+<!-- Background track -->
+<circle class="text-surface-container-highest/60" cx="80" cy="80" fill="transparent" r="64" stroke="currentColor" stroke-linecap="round" stroke-width="14"></circle>
+<!-- Active risk arc (84%) -->
+<!-- Circumference = 2 * PI * 64 ≈ 402.12. 84% = 337.78 active, offset = 64.34 -->
+<circle class="transition-all duration-1000 ease-out" cx="80" cy="80" fill="transparent" id="gauge-progress-circle" r="64" stroke="url(#riskGradient)" stroke-dasharray="402.12" stroke-dashoffset="64.34" stroke-linecap="round" stroke-width="14"></circle>
+<defs>
+<lineargradient id="riskGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#ffb4ab"></stop>
+<stop offset="60%" stop-color="#f59e0b"></stop>
+<stop offset="100%" stop-color="#93000a"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- Center Readout -->
+<div class="absolute flex flex-col items-center justify-center text-center">
+<span class="font-headline-xl text-4xl text-error font-extrabold tracking-tighter" id="risk-score-value">84<span class="text-xl font-normal text-on-surface-variant">%</span></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline -mt-1">Risk Score</span>
+</div>
+</div>
+<!-- Risk Status Pill & Telemetry -->
+<div class="flex flex-col gap-3 text-left w-full sm:w-auto">
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-error-container/40 border border-error/60 text-on-error-container font-label-md text-label-md w-fit shadow-[0_0_15px_rgba(239,68,68,0.25)]">
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-ping"></span>
+<span class="font-bold tracking-wider text-error">HIGH RETRACTION RISK</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Class: <strong>Tier-3 Anomaly</strong></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Field Percentile: <strong class="text-error">Top 99.4%</strong></span>
+<span class="font-label-sm text-label-sm text-outline">Action: Mandatory Editorial Hold</span>
+</div>
+</div>
+</div>
+<!-- Model Confidence Note -->
+<div class="mt-2 p-3 rounded-lg bg-surface-container border border-outline-variant/30 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-secondary shrink-0 mt-0.5">smart_toy</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Model Confidence: 94.2%</span>
+<span class="font-body-sm text-body-sm text-outline">Tuned XGBoost + Stacking Ensemble v2.4 (trained on 41,200 Retraction Watch ground-truth cases)</span>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="mt-6 pt-4 border-t border-outline-variant/20 flex flex-col sm:flex-row items-center gap-3">
+<button class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-surface-container-high hover:bg-surface-variant text-on-surface border border-outline-variant/50 hover:border-primary/50 font-label-md text-label-md transition-all shadow-sm group" onclick="window.downloadAuditPdf()" type="button">
+<span class="material-symbols-outlined text-[18px] text-error group-hover:scale-110 transition-transform">picture_as_pdf</span>
+<span>Download Forensic Audit PDF</span>
+</button>
+<button class="w-full sm:w-auto p-2.5 rounded bg-surface-container hover:bg-surface-variant text-on-surface-variant hover:text-on-surface border border-outline-variant/40 transition-colors flex items-center justify-center" onclick="alert('Case exported to institutional Integrity Registry (ID: REG-8849).');" title="Flag to Institutional Review Board" type="button">
+<span class="material-symbols-outlined text-[18px]">flag</span>
+</button>
+</div>
+</div>
+<!-- Top-Right Card: Top Risk Drivers (SHAP Feature Impact) (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-low border border-outline-variant/30 rounded-xl p-6 relative flex flex-col justify-between shadow-xl">
+<div>
+<!-- Card Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">bar_chart_4_bars</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Top Risk Drivers (SHAP Feature Impact)</h3>
+</div>
+<span class="font-label-sm text-label-sm text-outline font-mono">Additive Model Basis (+0.84 net)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-5">
+            Marginal probability contribution to retraction classification against baseline research corpus.
+          </p>
+<!-- SHAP Bar Items -->
+<div class="flex flex-col gap-4">
+<!-- Driver 1 -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-medium text-on-surface flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                  Prior Author Retractions
+                </span>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-error font-mono font-bold">+0.34</span>
+<span class="text-outline text-xs">| 40.5% weight</span>
+</div>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container overflow-hidden p-0.5 border border-outline-variant/20">
+<div class="h-full rounded-full bg-gradient-to-r from-error/80 to-error transition-all duration-700" style="width: 78%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-outline text-[11px]">2 senior co-authors connected to historical fabricated figure inquiries (2021).</span>
+</div>
+<!-- Driver 2 -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-medium text-on-surface flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
+                  Peer-Review Turnaround: 3 Days
+                </span>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-error font-mono font-bold">+0.26</span>
+<span class="text-outline text-xs">| 31.0% weight</span>
+</div>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container overflow-hidden p-0.5 border border-outline-variant/20">
+<div class="h-full rounded-full bg-gradient-to-r from-rose-400 to-error transition-all duration-700" style="width: 60%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-outline text-[11px]">Anomalous velocity vs field median 94 days (Paper Mill signifier pattern).</span>
+</div>
+<!-- Driver 3 -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-medium text-on-surface flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                  Self-Citation Ratio: 42%
+                </span>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-amber-400 font-mono font-bold">+0.18</span>
+<span class="text-outline text-xs">| 21.4% weight</span>
+</div>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container overflow-hidden p-0.5 border border-outline-variant/20">
+<div class="h-full rounded-full bg-gradient-to-r from-amber-500 to-amber-400 transition-all duration-700" style="width: 44%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-outline text-[11px]">High internal citation recycling within closed laboratory graph.</span>
+</div>
+<!-- Driver 4 & 5 Inline Grid for compact elegance -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+<!-- Driver 4 -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-medium text-on-surface text-xs truncate">Co-Author Network Clustering</span>
+<span class="font-label-sm text-label-sm text-secondary font-mono font-bold">+0.11</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden border border-outline-variant/20">
+<div class="h-full rounded-full bg-secondary-container transition-all duration-700" style="width: 28%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-outline text-[10px]">High internal density / clique metric (0.78).</span>
+</div>
+<!-- Driver 5 -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-medium text-on-surface text-xs truncate">Citation Burst Velocity</span>
+<span class="font-label-sm text-label-sm text-secondary font-mono font-bold">+0.07</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden border border-outline-variant/20">
+<div class="h-full rounded-full bg-secondary-container transition-all duration-700" style="width: 18%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-outline text-[10px]">64.2 cites/yr within immediate 6-mo window.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between text-xs text-outline font-label-sm">
+<span>Formula: XGB_Tree_SHAP + Explainer Kernel</span>
+<a class="text-secondary hover:underline flex items-center gap-1" href="#">Inspect SHAP Waterfall <span class="material-symbols-outlined text-[13px]">north_east</span></a>
+</div>
+</div>
+</section>
+<!-- 4. Bottom 3-Card Signal Grid (Author Signals, Citation Network, Journal & Review Metadata) -->
+<section class="w-full grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Card 1: Author Signals -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-5 flex flex-col justify-between shadow-lg relative group hover:border-outline-variant/60 transition-colors">
+<div>
+<!-- Header -->
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/20 mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">badge</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Author Signals</h4>
+</div>
+<span class="px-2 py-0.5 rounded bg-error-container/20 text-error font-label-sm text-label-sm font-semibold border border-error/30">
+              Anomalous
+            </span>
+</div>
+<!-- Metric List -->
+<div class="flex flex-col gap-3.5">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Co-Author Count</span>
+<div class="text-right">
+<span class="font-label-md text-label-md text-on-surface font-mono font-bold">8</span>
+<span class="font-label-sm text-label-sm text-outline ml-1">(Field avg: 4.2)</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Max Author Prior Works</span>
+<div class="text-right">
+<span class="font-label-md text-label-md text-on-surface font-mono font-bold">142</span>
+<span class="font-label-sm text-label-sm text-tertiary ml-1">h-index: 31</span>
+</div>
+</div>
+<div class="p-2.5 rounded bg-error-container/15 border border-error/30 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-error font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">flag</span>
+                  Prior Retractions in Network
+                </span>
+<span class="font-mono text-error font-bold text-base">3 Cases</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant leading-tight">
+                2 senior authors linked to 2021 Retraction Watch entry #RW-8924 (Image duplication).
+              </p>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Author Network Centrality</span>
+<div class="text-right">
+<span class="font-label-md text-label-md text-secondary font-mono font-bold">0.78</span>
+<span class="font-label-sm text-label-sm text-outline ml-1">(Dense Clique)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline font-mono">ORCID Tree Sync: Completed</span>
+<button class="text-primary hover:text-primary-fixed text-xs font-label-sm inline-flex items-center gap-0.5">
+            Graph <span class="material-symbols-outlined text-[12px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Citation Network -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-5 flex flex-col justify-between shadow-lg relative group hover:border-outline-variant/60 transition-colors">
+<div>
+<!-- Header -->
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/20 mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">hub</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Citation Network</h4>
+</div>
+<span class="px-2 py-0.5 rounded bg-error-container/20 text-error font-label-sm text-label-sm font-semibold border border-error/30">
+              High Anomaly
+            </span>
+</div>
+<!-- Metric List -->
+<div class="flex flex-col gap-3.5">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Total Citations</span>
+<div class="text-right">
+<span class="font-label-md text-label-md text-on-surface font-mono font-bold">189</span>
+<span class="font-label-sm text-label-sm text-outline ml-1">(Dimensions DB)</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Citation Velocity</span>
+<div class="text-right">
+<span class="font-label-md text-label-md text-error font-mono font-bold">64.2 / yr</span>
+<span class="font-label-sm text-label-sm text-error ml-1 font-semibold">(99th %ile spike)</span>
+</div>
+</div>
+<div class="p-2.5 rounded bg-surface-container border border-outline-variant/30 flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Self-Citation Ratio</span>
+<span class="font-mono text-amber-400 font-bold text-label-md">42.1%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-amber-400 rounded-full" style="width: 42%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-outline text-[10px]">Normal academic threshold &lt; 15%</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Graph Degree Centrality</span>
+<div class="text-right">
+<span class="font-label-md text-label-md text-error font-mono font-bold">0.041</span>
+<span class="font-label-sm text-label-sm text-outline ml-1">(Circular ring)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline font-mono">Crossref Citations Ingested</span>
+<button class="text-primary hover:text-primary-fixed text-xs font-label-sm inline-flex items-center gap-0.5">
+            Explore <span class="material-symbols-outlined text-[12px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Journal & Review Metadata -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-5 flex flex-col justify-between shadow-lg relative group hover:border-outline-variant/60 transition-colors">
+<div>
+<!-- Header -->
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/20 mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">rate_review</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Journal &amp; Review</h4>
+</div>
+<span class="px-2 py-0.5 rounded bg-error-container/20 text-error font-label-sm text-label-sm font-semibold border border-error/30">
+              Mill Pattern
+            </span>
+</div>
+<!-- Metric List -->
+<div class="flex flex-col gap-3.5">
+<div class="p-2.5 rounded bg-error-container/15 border border-error/30 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-error font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">speed</span>
+                  Review Turnaround
+                </span>
+<span class="font-mono text-error font-bold text-base">3 Days</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant leading-tight">
+                Submission: Oct 11 • Acceptance: Oct 14. Potential compromised review or paper mill operation.
+              </p>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Journal Retraction Rate</span>
+<div class="text-right">
+<span class="font-label-md text-label-md text-error font-mono font-bold">2.8%</span>
+<span class="font-label-sm text-label-sm text-outline ml-1">(Expected: 0.04%)</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Publisher Entity</span>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface font-medium truncate max-w-[130px] block" title="Frontier Scholarly Academic Press">
+                  Frontier Scholarly...
+                </span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Open Access Type</span>
+<div class="text-right">
+<span class="font-label-md text-label-md text-tertiary font-mono font-bold">Gold OA</span>
+<span class="font-label-sm text-label-sm text-outline ml-1">(APC: $2,850)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline font-mono">DOAJ Verified Status</span>
+<button class="text-primary hover:text-primary-fixed text-xs font-label-sm inline-flex items-center gap-0.5">
+            Verify <span class="material-symbols-outlined text-[12px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Additional Forensic Evidence Bar: Visual Citation Histogram -->
+<section class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl p-5 shadow-lg flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-high border border-outline-variant/40 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[22px]">ssid_chart</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Corpus Risk Distribution Benchmark</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Comparative density across 2.4M screened publications in Material Science &amp; Condensed Matter.</span>
+</div>
+</div>
+<!-- Segmented Histogram Bar -->
+<div class="w-full md:w-96 flex flex-col gap-1.5 shrink-0">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-tertiary">Clean (92.4%)</span>
+<span class="text-amber-400">Borderline (5.8%)</span>
+<span class="text-error font-bold">Retracted (1.8%)</span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container overflow-hidden flex border border-outline-variant/20">
+<div class="h-full bg-tertiary" style="width: 92.4%;" title="Clean: 92.4%"></div>
+<div class="h-full bg-amber-400" style="width: 5.8%;" title="Borderline: 5.8%"></div>
+<div class="h-full bg-error" style="width: 1.8%;" title="Retracted / High Risk: 1.8%"></div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-sm text-[10px]">
+<span>Current DOI matches: 99.4th percentile danger bracket</span>
+<span class="text-error font-mono">Retraction Risk: 84%</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Micro-Interactivity Script for Preset Switching & Simulation -->
+<script>
+  window.sampleData = {
+    1: {
+      doi: "10.1016/j.cell.2019.08.012",
+      title: "Superconducting Fluctuations and Phase Coherence in Nanoscale Chalcogenide Heterostructures",
+      authors: "Dr. Kenneth Zhao, Elena Rostova, Marcus Vance, et al.",
+      journal: "Journal of Advanced Nanomaterials",
+      date: "October 14, 2023",
+      score: "84%",
+      strokeOffset: "64.34",
+      riskText: "HIGH RISK",
+      statusClass: "text-error"
+    },
+    2: {
+      doi: "10.1038/s41586-021-03819-2",
+      title: "Quantum Simulation of Strongly Correlated Electrons in Moiré Superlattices",
+      authors: "Dr. Alicia Sommer, Prof. David H. Lin, Michael Chang, et al.",
+      journal: "Nature Physics & Quantum Systems",
+      date: "August 22, 2021",
+      score: "4%",
+      strokeOffset: "386.03",
+      riskText: "CLEAN RECORD",
+      statusClass: "text-tertiary"
+    },
+    3: {
+      doi: "10.1103/PhysRevLett.124.041101",
+      title: "Gravitational Wave Signatures in High-Density Binary Neutron Star Mergers",
+      authors: "T. G. Thorne, S. Alvarez-Rios, Clara M. Vogt",
+      journal: "Physical Review Letters",
+      date: "February 04, 2020",
+      score: "48%",
+      strokeOffset: "209.10",
+      riskText: "BORDERLINE VELOCITY",
+      statusClass: "text-secondary"
+    }
+  };
+
+  window.selectSample = function(id) {
+    const data = window.sampleData[id];
+    if (!data) return;
+
+    // Update input field
+    const input = document.getElementById('doi-input-field');
+    if (input) input.value = data.doi;
+
+    // Update Meta card
+    const metaDoi = document.getElementById('meta-doi-text');
+    const metaTitle = document.getElementById('meta-title');
+    const metaAuthors = document.getElementById('meta-authors');
+    const metaJournal = document.getElementById('meta-journal');
+    const metaDate = document.getElementById('meta-date');
+
+    if (metaDoi) metaDoi.innerText = data.doi;
+    if (metaTitle) metaTitle.innerText = data.title;
+    if (metaAuthors) metaAuthors.innerText = data.authors;
+    if (metaJournal) metaJournal.innerText = data.journal;
+    if (metaDate) metaDate.innerText = data.date;
+
+    // Update gauge
+    const gauge = document.getElementById('gauge-progress-circle');
+    const scoreVal = document.getElementById('risk-score-value');
+    if (gauge) gauge.style.strokeDashoffset = data.strokeOffset;
+    if (scoreVal) scoreVal.innerHTML = data.score.replace('%', '<span class="text-xl font-normal text-on-surface-variant">%</span>');
+
+    // Highlight active pill styling
+    [1, 2, 3].forEach(num => {
+      const pill = document.getElementById('sample-pill-' + num);
+      if (!pill) return;
+      if (num === id) {
+        pill.classList.add('border-primary', 'bg-surface-container-high', 'shadow-md');
+      } else {
+        pill.classList.remove('border-primary', 'bg-surface-container-high', 'shadow-md');
+      }
+    });
+  };
+
+  window.triggerScan = function() {
+    const btn = document.getElementById('scan-button');
+    if (!btn) return;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin text-primary">progress_activity</span><span>Querying OpenAlex API...</span>`;
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+      alert("RetractGuard Live Query: Re-calculated feature vectors for DOI: " + (document.getElementById('doi-input-field')?.value || 'current DOI'));
+    }, 900);
+  };
+
+  window.downloadAuditPdf = function() {
+    const btn = event.currentTarget;
+    const oldText = btn.innerHTML;
+    btn.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">download</span><span>Generating Forensic Dossier...</span>`;
+    setTimeout(() => {
+      btn.innerHTML = oldText;
+      alert("RetractGuard Dossier compiled. Download triggered for 'Forensic_Audit_DOI_10.1016_cell.pdf' (SHA256 checksum stamped).");
+    }, 1200);
+  };
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-surface-variant py-space-lg"><div class="w-full px-margin md:px-margin-tablet lg:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm"><span class="font-label-md text-label-md text-on-surface-variant">RetractGuard Computational Risk Engine</span><span class="font-label-sm text-label-sm text-outline">|</span><span class="font-label-sm text-label-sm text-outline">DOIs • Crossref • OpenAlex Pipeline</span></div><div class="flex items-center gap-space-lg"><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Integrity Benchmarks</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">API Spec</a><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Editorial Protocol</a></div></div></footer></body></html>

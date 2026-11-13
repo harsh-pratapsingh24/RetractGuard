@@ -1,0 +1,169 @@
+{
+  "kpis": {
+    "best_model": "Tuned XGBoost (PR-AUC Optimized)",
+    "pr_auc": 1.0,
+    "roc_auc": 1.0,
+    "f1_score": 0.963,
+    "class_imbalance_ratio": "1 : 5.7"
+  },
+  "model_comparison": [
+    {
+      "model": "Logistic Regression (Unregularized)",
+      "precision": 1.0,
+      "recall": 0.929,
+      "f1": 0.963,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0
+    },
+    {
+      "model": "Logistic Regression (L1 Lasso)",
+      "precision": 0.933,
+      "recall": 1.0,
+      "f1": 0.966,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0
+    },
+    {
+      "model": "Logistic Regression (L2 Ridge)",
+      "precision": 1.0,
+      "recall": 0.929,
+      "f1": 0.963,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0
+    },
+    {
+      "model": "Random Forest (Bagging)",
+      "precision": 0.933,
+      "recall": 1.0,
+      "f1": 0.966,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0
+    },
+    {
+      "model": "Soft Stacking Ensemble",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0
+    },
+    {
+      "model": "XGBoost (Tuned & Regularized)",
+      "precision": 0.933,
+      "recall": 1.0,
+      "f1": 0.966,
+      "roc_auc": 1.0,
+      "pr_auc": 1.0
+    },
+    {
+      "model": "Decision Tree (Regularized)",
+      "precision": 0.875,
+      "recall": 1.0,
+      "f1": 0.933,
+      "roc_auc": 0.992,
+      "pr_auc": 0.92
+    },
+    {
+      "model": "Decision Tree (Unpruned)",
+      "precision": 0.778,
+      "recall": 1.0,
+      "f1": 0.875,
+      "roc_auc": 0.974,
+      "pr_auc": 0.778
+    }
+  ],
+  "feature_importances": [
+    {
+      "feature": "review_turnaround_days",
+      "importance": 0.3444
+    },
+    {
+      "feature": "journal_retraction_rate",
+      "importance": 0.2243
+    },
+    {
+      "feature": "prior_author_retractions",
+      "importance": 0.134
+    },
+    {
+      "feature": "coauthor_clustering_coeff",
+      "importance": 0.0835
+    },
+    {
+      "feature": "self_citation_ratio",
+      "importance": 0.0559
+    },
+    {
+      "feature": "author_count",
+      "importance": 0.0308
+    },
+    {
+      "feature": "citation_velocity",
+      "importance": 0.0305
+    },
+    {
+      "feature": "cited_by_count",
+      "importance": 0.0274
+    },
+    {
+      "feature": "mean_author_works",
+      "importance": 0.0255
+    },
+    {
+      "feature": "coauthor_degree_centrality",
+      "importance": 0.0215
+    },
+    {
+      "feature": "max_author_works",
+      "importance": 0.0165
+    },
+    {
+      "feature": "is_open_access",
+      "importance": 0.0055
+    }
+  ],
+  "figures": [
+    {
+      "id": "class_dist",
+      "title": "Class Imbalance Distribution",
+      "filename": "class_distribution.png",
+      "category": "EDA"
+    },
+    {
+      "id": "turnaround_box",
+      "title": "Peer-Review Turnaround by Retraction Status",
+      "filename": "review_turnaround_boxplot.png",
+      "category": "EDA"
+    },
+    {
+      "id": "citation_vel",
+      "title": "Citation Velocity Dynamics Comparison",
+      "filename": "citation_velocity_comparison.png",
+      "category": "EDA"
+    },
+    {
+      "id": "corr_heatmap",
+      "title": "Feature Correlation Heatmap",
+      "filename": "feature_correlation_heatmap.png",
+      "category": "EDA"
+    },
+    {
+      "id": "pr_roc_curves",
+      "title": "PR-AUC and ROC-AUC Cross-Model Curves",
+      "filename": "pr_roc_curves.png",
+      "category": "Evaluation"
+    },
+    {
+      "id": "confusion_matrices",
+      "title": "Confusion Matrices & Error Analysis",
+      "filename": "confusion_matrices.png",
+      "category": "Evaluation"
+    },
+    {
+      "id": "feature_importance",
+      "title": "Ensemble Feature Importance (SHAP/Gain)",
+      "filename": "feature_importance.png",
+      "category": "Evaluation"
+    }
+  ]
+}
