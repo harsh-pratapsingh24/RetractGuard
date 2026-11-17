@@ -1,125 +1,133 @@
 {
   "kpis": {
-    "best_model": "Tuned XGBoost (PR-AUC Optimized)",
-    "pr_auc": 1.0,
-    "roc_auc": 1.0,
-    "f1_score": 0.963,
-    "class_imbalance_ratio": "1 : 5.7"
+    "best_model": "XGBoost (Tuned & Regularized)",
+    "pr_auc": 0.836,
+    "roc_auc": 0.938,
+    "f1_score": 0.713,
+    "class_imbalance_ratio": "1 : 4.0"
   },
   "model_comparison": [
     {
-      "model": "Logistic Regression (Unregularized)",
-      "precision": 1.0,
-      "recall": 0.929,
-      "f1": 0.963,
-      "roc_auc": 1.0,
-      "pr_auc": 1.0
+      "model": "XGBoost (Tuned & Regularized)",
+      "precision": 0.652,
+      "recall": 0.787,
+      "f1": 0.713,
+      "roc_auc": 0.938,
+      "pr_auc": 0.836
     },
     {
-      "model": "Logistic Regression (L1 Lasso)",
-      "precision": 0.933,
-      "recall": 1.0,
-      "f1": 0.966,
-      "roc_auc": 1.0,
-      "pr_auc": 1.0
-    },
-    {
-      "model": "Logistic Regression (L2 Ridge)",
-      "precision": 1.0,
-      "recall": 0.929,
-      "f1": 0.963,
-      "roc_auc": 1.0,
-      "pr_auc": 1.0
-    },
-    {
-      "model": "Random Forest (Bagging)",
-      "precision": 0.933,
-      "recall": 1.0,
-      "f1": 0.966,
-      "roc_auc": 1.0,
-      "pr_auc": 1.0
+      "model": "XGBoost (Default)",
+      "precision": 0.581,
+      "recall": 0.813,
+      "f1": 0.678,
+      "roc_auc": 0.932,
+      "pr_auc": 0.813
     },
     {
       "model": "Soft Stacking Ensemble",
-      "precision": 1.0,
-      "recall": 1.0,
-      "f1": 1.0,
-      "roc_auc": 1.0,
-      "pr_auc": 1.0
+      "precision": 0.619,
+      "recall": 0.813,
+      "f1": 0.703,
+      "roc_auc": 0.93,
+      "pr_auc": 0.801
     },
     {
-      "model": "XGBoost (Tuned & Regularized)",
-      "precision": 0.933,
-      "recall": 1.0,
-      "f1": 0.966,
-      "roc_auc": 1.0,
-      "pr_auc": 1.0
+      "model": "Logistic Regression (Unregularized)",
+      "precision": 0.56,
+      "recall": 0.807,
+      "f1": 0.661,
+      "roc_auc": 0.907,
+      "pr_auc": 0.755
     },
     {
-      "model": "Decision Tree (Regularized)",
-      "precision": 0.875,
-      "recall": 1.0,
-      "f1": 0.933,
-      "roc_auc": 0.992,
-      "pr_auc": 0.92
+      "model": "Logistic Regression (L2 Ridge)",
+      "precision": 0.558,
+      "recall": 0.807,
+      "f1": 0.659,
+      "roc_auc": 0.906,
+      "pr_auc": 0.754
+    },
+    {
+      "model": "Logistic Regression (L1 Lasso)",
+      "precision": 0.548,
+      "recall": 0.8,
+      "f1": 0.65,
+      "roc_auc": 0.906,
+      "pr_auc": 0.752
+    },
+    {
+      "model": "Random Forest (Bagging)",
+      "precision": 0.53,
+      "recall": 0.813,
+      "f1": 0.642,
+      "roc_auc": 0.909,
+      "pr_auc": 0.737
+    },
+    {
+      "model": "Decision Tree (Pruned & Regularized)",
+      "precision": 0.459,
+      "recall": 0.747,
+      "f1": 0.569,
+      "roc_auc": 0.792,
+      "pr_auc": 0.437
     },
     {
       "model": "Decision Tree (Unpruned)",
-      "precision": 0.778,
-      "recall": 1.0,
-      "f1": 0.875,
-      "roc_auc": 0.974,
-      "pr_auc": 0.778
+      "precision": 0.468,
+      "recall": 0.627,
+      "f1": 0.536,
+      "roc_auc": 0.724,
+      "pr_auc": 0.368
     }
   ],
   "feature_importances": [
     {
-      "feature": "review_turnaround_days",
-      "importance": 0.3444
-    },
-    {
-      "feature": "journal_retraction_rate",
-      "importance": 0.2243
-    },
-    {
       "feature": "prior_author_retractions",
-      "importance": 0.134
-    },
-    {
-      "feature": "coauthor_clustering_coeff",
-      "importance": 0.0835
-    },
-    {
-      "feature": "self_citation_ratio",
-      "importance": 0.0559
-    },
-    {
-      "feature": "author_count",
-      "importance": 0.0308
-    },
-    {
-      "feature": "citation_velocity",
-      "importance": 0.0305
-    },
-    {
-      "feature": "cited_by_count",
-      "importance": 0.0274
-    },
-    {
-      "feature": "mean_author_works",
-      "importance": 0.0255
-    },
-    {
-      "feature": "coauthor_degree_centrality",
-      "importance": 0.0215
-    },
-    {
-      "feature": "max_author_works",
-      "importance": 0.0165
+      "importance": 0.2421
     },
     {
       "feature": "is_open_access",
-      "importance": 0.0055
+      "importance": 0.1604
+    },
+    {
+      "feature": "journal_retraction_rate",
+      "importance": 0.1081
+    },
+    {
+      "feature": "self_citation_ratio",
+      "importance": 0.1024
+    },
+    {
+      "feature": "coauthor_degree_centrality",
+      "importance": 0.0762
+    },
+    {
+      "feature": "author_count",
+      "importance": 0.0653
+    },
+    {
+      "feature": "coauthor_clustering_coeff",
+      "importance": 0.0567
+    },
+    {
+      "feature": "review_turnaround_days",
+      "importance": 0.053
+    },
+    {
+      "feature": "citation_velocity",
+      "importance": 0.0439
+    },
+    {
+      "feature": "mean_author_works",
+      "importance": 0.0433
+    },
+    {
+      "feature": "cited_by_count",
+      "importance": 0.0303
+    },
+    {
+      "feature": "max_author_works",
+      "importance": 0.0184
     }
   ],
   "figures": [
@@ -127,6 +135,12 @@
       "id": "class_dist",
       "title": "Class Imbalance Distribution",
       "filename": "class_distribution.png",
+      "category": "EDA"
+    },
+    {
+      "id": "reasons_bar",
+      "title": "Top Retraction Watch Reason Taxonomies",
+      "filename": "retraction_reasons_barchart.png",
       "category": "EDA"
     },
     {
@@ -148,6 +162,12 @@
       "category": "EDA"
     },
     {
+      "id": "shrinkage_path",
+      "title": "L1 vs L2 Regularization Shrinkage Paths",
+      "filename": "coefficient_shrinkage.png",
+      "category": "Modeling"
+    },
+    {
       "id": "pr_roc_curves",
       "title": "PR-AUC and ROC-AUC Cross-Model Curves",
       "filename": "pr_roc_curves.png",
@@ -161,7 +181,7 @@
     },
     {
       "id": "feature_importance",
-      "title": "Ensemble Feature Importance (SHAP/Gain)",
+      "title": "Ensemble Feature Importance (Gain Ranking)",
       "filename": "feature_importance.png",
       "category": "Evaluation"
     }

@@ -21,8 +21,77 @@ from src.data_pipeline import fetch_openalex_metadata, fetch_crossref_metadata
 MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "models", "best_retraction_model.joblib")
 
 
-# Known benchmark papers for seamless and resilient demo testing
+# Known benchmark papers from Retraction Watch Dataset & Peer-Reviewed Control
 PRESET_PAPERS = {
+    "10.2147/OTT.S184337": {
+        "title": "TNFα Promotes Glioblastoma A172 Cell Mitochondrial Apoptosis via Augmenting Mitochondrial Fission and Repression of MAPK-ERK-YAP Signaling Pathways",
+        "authors": "Guo-Cheng Sun, Long-Fei Shen, Wei-Dong Ke, et al.",
+        "author_count": 7,
+        "journal": "OncoTargets and Therapy",
+        "publisher": "Dove Medical Press",
+        "publication_year": 2018,
+        "license": "CC-BY 4.0 Open Access",
+        "is_open_access": 1,
+        "max_author_works": 45,
+        "mean_author_works": 18.2,
+        "prior_author_retractions": 2,
+        "cited_by_count": 34,
+        "citation_velocity": 4.25,
+        "self_citation_ratio": 0.38,
+        "coauthor_degree_centrality": 0.08,
+        "coauthor_clustering_coeff": 0.82,
+        "review_turnaround_days": 11,
+        "journal_retraction_rate": 0.024,
+        "retraction_date": "2021-06-18",
+        "retraction_nature": "Retraction",
+        "retraction_reason": "Paper Mill; Concerns About Image; Duplication of Image; Original Data not Provided"
+    },
+    "10.1080/24701556.2020.1727516": {
+        "title": "Two mixed-ligand Cd(II)-coordination polymers: structural diversity and antitumor activity against human osteogenic sarcoma cells",
+        "authors": "Yan-Hui Zhang, Xiao-Li Wang, Min Liu, et al.",
+        "author_count": 6,
+        "journal": "Inorganic and Nano-Metal Chemistry",
+        "publisher": "Taylor & Francis",
+        "publication_year": 2020,
+        "license": "Standard Subscription",
+        "is_open_access": 0,
+        "max_author_works": 62,
+        "mean_author_works": 24.5,
+        "prior_author_retractions": 1,
+        "cited_by_count": 28,
+        "citation_velocity": 4.67,
+        "self_citation_ratio": 0.44,
+        "coauthor_degree_centrality": 0.06,
+        "coauthor_clustering_coeff": 0.75,
+        "review_turnaround_days": 13,
+        "journal_retraction_rate": 0.031,
+        "retraction_date": "2022-03-15",
+        "retraction_nature": "Retraction",
+        "retraction_reason": "Paper Mill; Concerns/Issues About Data; Unreliable Results"
+    },
+    "10.7759/cureus.28875": {
+        "title": "Causes of Cancer in the World: Comparative Risk Assessment of Nine Behavioral and Environmental Risk Factors",
+        "authors": "T. R. Sharma, M. P. Verma, R. K. Gupta",
+        "author_count": 3,
+        "journal": "Cureus Journal of Medical Science",
+        "publisher": "Springer Nature / Cureus",
+        "publication_year": 2022,
+        "license": "CC-BY 4.0 Gold OA",
+        "is_open_access": 1,
+        "max_author_works": 28,
+        "mean_author_works": 12.0,
+        "prior_author_retractions": 1,
+        "cited_by_count": 16,
+        "citation_velocity": 4.0,
+        "self_citation_ratio": 0.29,
+        "coauthor_degree_centrality": 0.12,
+        "coauthor_clustering_coeff": 0.68,
+        "review_turnaround_days": 9,
+        "journal_retraction_rate": 0.018,
+        "retraction_date": "2024-04-19",
+        "retraction_nature": "Retraction",
+        "retraction_reason": "Plagiarism of Article; Plagiarism of Image; Euphemisms for Plagiarism"
+    },
     "10.1016/j.cell.2019.08.012": {
         "title": "Superconducting Fluctuations and Phase Coherence in Nanoscale Chalcogenide Heterostructures",
         "authors": "Dr. Kenneth Zhao, Elena Rostova, Marcus Vance, et al.",
@@ -42,8 +111,9 @@ PRESET_PAPERS = {
         "coauthor_clustering_coeff": 0.78,
         "review_turnaround_days": 3,
         "journal_retraction_rate": 0.028,
-        "retraction_date": "January 2024",
-        "retraction_reason": "Post-Publication Inquiry: Image Duplication"
+        "retraction_date": "2024-01-15",
+        "retraction_nature": "Retraction",
+        "retraction_reason": "Post-Publication Inquiry: Image Duplication; Data Falsification"
     },
     "10.1038/s41586-021-03819-2": {
         "title": "Quantum Simulation of Strongly Correlated Electrons in Moiré Superlattices",
@@ -65,6 +135,7 @@ PRESET_PAPERS = {
         "review_turnaround_days": 134,
         "journal_retraction_rate": 0.0012,
         "retraction_date": None,
+        "retraction_nature": "Clean / Not Retracted",
         "retraction_reason": None
     },
     "10.1103/PhysRevLett.124.041101": {
@@ -87,6 +158,7 @@ PRESET_PAPERS = {
         "review_turnaround_days": 88,
         "journal_retraction_rate": 0.0008,
         "retraction_date": None,
+        "retraction_nature": "Clean / Not Retracted",
         "retraction_reason": None
     }
 }
