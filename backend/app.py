@@ -1,7 +1,7 @@
 """
 RetractGuard Flask Backend Server
-Exposes RESTful endpoints for live paper retraction risk inference,
-model performance metrics, and evaluation figures.
+Exposes RESTful endpoints for live paper retraction risk inference via DOI or PDF upload,
+model performance metrics, and static evaluation figures.
 """
 
 import os
@@ -17,17 +17,22 @@ if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)
 
 from src.inference import RetractionPredictor
+from src.pdf_extractor import extract_paper_info_from_pdf
+from src.reference_auditor import extract_references_from_text, audit_references
+from src.features import sanitize_for_json
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("RetractGuardBackend")
 
 app = Flask(__name__)
+# Enable CORS for frontend Vite dev server & production
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 predictor = RetractionPredictor()
 
 METRICS_PATH = os.path.join(ROOT_DIR, "models", "model_metrics.json")
 FIGURES_DIR = os.path.join(ROOT_DIR, "reports", "figures")
+FRONTEND_DIST = os.path.join(ROOT_DIR, "frontend", "dist")
 
 
 @app.route("/api/health", methods=["GET"])
@@ -35,26 +40,188 @@ def health_check():
     return jsonify({
         "status": "healthy",
         "service": "RetractGuard Computational Risk Engine",
-        "version": "2.4",
-        "model_loaded": predictor.model is not None
+        "version": "2.5",
+        "model_loaded": predictor.model is not None,
+        "features_tracked": 12
     })
 
 
 @app.route("/api/predict", methods=["POST"])
 def predict():
+    """
+    Unified prediction endpoint supporting:
+    1. JSON payload: {"doi": "10.xxxx/..."} or {"text": "manuscript text / citations..."}
+    2. Multipart form upload: file (.pdf or .txt)
+    """
     try:
+        # Check if multipart form contains a file upload (.pdf or .txt)
+        if "file" in request.files or "pdf" in request.files:
+            file_obj = request.files.get("file") or request.files.get("pdf")
+            if not file_obj or not file_obj.filename:
+                return jsonify({
+                    "error": "No file uploaded",
+                    "message": "Please attach a file (.pdf or .txt) in the 'file' form field."
+                }), 400
+
+            filename = file_obj.filename
+            lower_name = filename.lower()
+            file_bytes = file_obj.read()
+            if len(file_bytes) == 0:
+                return jsonify({
+                    "error": "Empty file",
+                    "message": "Uploaded file contains 0 bytes."
+                }), 400
+
+            if lower_name.endswith(".pdf"):
+                result = predictor.predict_from_pdf(file_bytes, filename=filename)
+                safe_result = sanitize_for_json(result)
+                status_code = 400 if (safe_result.get("error") and not safe_result.get("is_scanned")) else 200
+                return jsonify(safe_result), status_code
+            elif lower_name.endswith(".txt"):
+                # Handle plain text manuscript
+                text_content = file_bytes.decode("utf-8", errors="replace")
+                refs = extract_references_from_text(text_content)
+                audit_res = audit_references(refs)
+                return jsonify(sanitize_for_json({
+                    "doi": "Plaintext Manuscript Upload",
+                    "paper_title": filename.rsplit(".", 1)[0].replace("_", " "),
+                    "authors": "Uploaded Manuscript",
+                    "journal": "Local Manuscript",
+                    "publisher": "Local Draft",
+                    "publication_year": 2024,
+                    "license": "Local Text Document",
+                    "retraction_status": "Clean Record",
+                    "risk_score": 15.0 if audit_res.get("retracted_count", 0) == 0 else 75.0,
+                    "risk_level": "Low" if audit_res.get("retracted_count", 0) == 0 else "High",
+                    "action_recommendation": "Review flagged references prior to submission." if audit_res.get("retracted_count", 0) > 0 else "No retracted references detected in text.",
+                    "extracted_features": {},
+                    "risk_contributions": [],
+                    "missing_features": [],
+                    "missing_data_warnings": ["Text manuscript mode: Reference screening performed directly from uploaded text."],
+                    "warnings": [],
+                    "filename": filename,
+                    "is_scanned": False,
+                    "extracted_text_snippet": text_content[:1500],
+                    "reference_audit": audit_res,
+                    "data_provenance": "Plaintext Reference Retraction Screening"
+                })), 200
+            else:
+                return jsonify({
+                    "error": "Unsupported file format",
+                    "message": f"RetractGuard supports .pdf and .txt files. Received '{filename}'."
+                }), 400
+
+        # Otherwise parse JSON body
         data = request.get_json(force=True, silent=True) or {}
         doi = data.get("doi", "").strip()
+        raw_text = data.get("text", "").strip()
+
+        if raw_text and not doi:
+            # Direct text audit
+            refs = extract_references_from_text(raw_text)
+            audit_res = audit_references(refs)
+            return jsonify(sanitize_for_json({
+                "doi": "Pasted Manuscript Text",
+                "paper_title": "Pasted Manuscript / References Draft",
+                "authors": "Draft Author",
+                "journal": "Draft Workspace",
+                "publisher": "Unpublished",
+                "publication_year": 2024,
+                "license": "Draft",
+                "retraction_status": "Clean Record",
+                "risk_score": 15.0 if audit_res.get("retracted_count", 0) == 0 else 75.0,
+                "risk_level": "Low" if audit_res.get("retracted_count", 0) == 0 else "High",
+                "action_recommendation": "Review flagged references prior to journal submission." if audit_res.get("retracted_count", 0) > 0 else "All screened references are clean in Retraction Watch database.",
+                "extracted_features": {},
+                "risk_contributions": [],
+                "missing_features": [],
+                "missing_data_warnings": ["Direct text audit: references screened against Retraction Watch."],
+                "warnings": [],
+                "is_scanned": False,
+                "extracted_text_snippet": raw_text[:1500],
+                "reference_audit": audit_res,
+                "data_provenance": "Interactive Text Retraction Screening"
+            })), 200
 
         if not doi:
-            return jsonify({"error": "Missing required field 'doi'."}), 400
+            return jsonify({
+                "error": "Missing input",
+                "message": "Please provide a valid 'doi' or manuscript 'text' in JSON, or upload a .pdf / .txt file."
+            }), 400
 
         result = predictor.predict_paper(doi)
-        return jsonify(result), 200
+        safe_result = sanitize_for_json(result)
+        if safe_result.get("error") == "Invalid DOI format":
+            return jsonify(safe_result), 400
+
+        return jsonify(safe_result), 200
 
     except Exception as e:
         logger.error(f"Prediction failed for request: {e}", exc_info=True)
-        return jsonify({"error": "Internal inference error", "details": str(e)}), 500
+        return jsonify({
+            "error": "Internal inference error",
+            "message": str(e)
+        }), 500
+
+
+@app.route("/api/predict/pdf", methods=["POST"])
+@app.route("/api/predict-pdf", methods=["POST"])
+def predict_pdf():
+    """
+    Dedicated endpoint for PDF research paper uploads.
+    """
+    try:
+        file_obj = request.files.get("file") or request.files.get("pdf")
+        if not file_obj or not file_obj.filename:
+            return jsonify({
+                "error": "Missing PDF file",
+                "message": "Please provide a PDF file in form-data field 'file' or 'pdf'."
+            }), 400
+
+        filename = file_obj.filename
+        if not filename.lower().endswith(".pdf"):
+            return jsonify({
+                "error": "Invalid file extension",
+                "message": f"Expected a .pdf file, received '{filename}'."
+            }), 400
+
+        pdf_bytes = file_obj.read()
+        if len(pdf_bytes) == 0:
+            return jsonify({
+                "error": "Empty file",
+                "message": "Uploaded PDF file contains 0 bytes."
+            }), 400
+
+        result = predictor.predict_from_pdf(pdf_bytes, filename=filename)
+        safe_result = sanitize_for_json(result)
+        status_code = 400 if (safe_result.get("error") and not safe_result.get("is_scanned")) else 200
+        return jsonify(safe_result), status_code
+
+    except Exception as e:
+        logger.error(f"PDF prediction failed: {e}", exc_info=True)
+        return jsonify({
+            "error": "PDF processing error",
+            "message": str(e)
+        }), 500
+
+
+@app.route("/api/extract-metadata", methods=["POST"])
+def extract_metadata():
+    """
+    Utility endpoint to preview extracted PDF metadata using PyMuPDF without running full model scoring.
+    """
+    try:
+        file_obj = request.files.get("file") or request.files.get("pdf")
+        if not file_obj or not file_obj.filename:
+            return jsonify({"error": "Missing PDF file"}), 400
+
+        pdf_bytes = file_obj.read()
+        res = extract_paper_info_from_pdf(pdf_bytes)
+        return jsonify(sanitize_for_json(res)), 200
+
+    except Exception as e:
+        logger.error(f"Metadata extraction failed: {e}", exc_info=True)
+        return jsonify({"error": str(e)}), 500
 
 
 @app.route("/api/metrics", methods=["GET"])
@@ -63,7 +230,7 @@ def get_metrics():
         try:
             with open(METRICS_PATH, "r", encoding="utf-8") as f:
                 data = json.load(f)
-            return jsonify(data), 200
+            return jsonify(sanitize_for_json(data)), 200
         except Exception as e:
             logger.error(f"Error reading metrics JSON: {e}")
 
@@ -111,6 +278,19 @@ def get_figure(filename):
     if not os.path.exists(os.path.join(FIGURES_DIR, filename)):
         return jsonify({"error": f"Figure {filename} not found"}), 404
     return send_from_directory(FIGURES_DIR, filename)
+
+
+# Serve frontend in production (SPAs fallback to index.html)
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def serve_frontend(path):
+    if path != "" and os.path.exists(os.path.join(FRONTEND_DIST, path)):
+        return send_from_directory(FRONTEND_DIST, path)
+    if os.path.exists(os.path.join(FRONTEND_DIST, "index.html")):
+        return send_from_directory(FRONTEND_DIST, "index.html")
+    return jsonify({
+        "message": "RetractGuard API running. Run 'npm run build' inside frontend/ to serve the UI here."
+    }), 200
 
 
 if __name__ == "__main__":

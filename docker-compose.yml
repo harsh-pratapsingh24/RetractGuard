@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  retractguard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: retractguard-app
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+    restart: unless-stopped
+    volumes:
+      # Optional: persist cached retraction index across restarts
+      - ./data/cache:/app/data/cache
